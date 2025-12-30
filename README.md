@@ -37,9 +37,6 @@ The project is divided into three phases:
 - Axios
 - React Router DOM
 
-
-## 🗂️ Project Structure
-
 ---
 
 ## 🗂️ Project Structure
@@ -96,12 +93,30 @@ beyondchats-assignment/
 ## Environment Variables
 
 Create a .env file inside the backend directory:
-
+```env
 MONGO_URL=your_mongodb_connection_string  
 SERPER_API_KEY=your_serper_api_key  
 OPENROUTER_API_KEY=your_llm_api_key  
-
+```
 ---
+
+##Phase 1 – Scraping & CRUD APIs Features
+###Scrapes the 5 oldest articles from BeyondChats blogs 
+-Extracts:
+
+  -1.Title
+  
+  -2.Content
+  
+  -3.Author
+  
+  -4.Published date
+  
+  -5.Source URL
+
+-Stores data in MongoDB
+
+-Provides full CRUD APIs
 
 ## API Endpoints
 
@@ -113,7 +128,13 @@ DELETE  /api/articles/:id
 POST    /api/articles/:id/rewrite  
 
 ---
+##Phase 2 – AI Rewrite Pipeline
+###Rewrite Endpoint
 
+```
+POST /api/articles/:id/rewrite
+```
+---
 
 ### Rewrite Flow
 
@@ -152,22 +173,21 @@ POST    /api/articles/:id/rewrite
 
 ### Backend
 ```
-cd backend  
+cd backend/src
 npm install  
-npm start  
+node app.js 
 ```
 Backend runs on http://localhost:8080
 
 ### Frontend
 ```
-cd frontend  
+cd frontend/src
 npm install  
 npm run dev  
 ```
 Frontend runs on http://localhost:5173
 
 ---
-
 
 ---
 
