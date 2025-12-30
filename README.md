@@ -71,7 +71,6 @@ frontend/
 ├── public/
 └── package.json
 ```
-
 ---
 
 ## Environment Variables
