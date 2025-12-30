@@ -37,56 +37,41 @@ The project is divided into three phases:
 - Axios
 - React Router DOM
 
----
 
-## Complete Project Structure
----
-beyondchats-assignment/
-│
-├── backend/
-│   ├── src/
-│   │   ├── controllers/
-│   │   │   └── articleController.js
-│   │   ├── models/
-│   │   │   └── Article.js
-│   │   ├── routes/
-│   │   │   └── articleRoutes.js
-│   │   ├── services/
-│   │   │   ├── rewriteArticleService.js
-│   │   │   └── llm/
-│   │   │       ├── llmClient.js
-│   │   │       └── rewritePrompt.js
-│   │   └── index.js
-│   │
-│   ├── scripts/
-│   │   ├── beyondchatsScraper.js
-│   │   ├── googleSearch.js
-│   │   └── scrapeArticleContent.js
-│   │
-│   ├── .env
+## 🗂️ Project Structure
+
+```
+
+## 🗂️ Project Structure
+
+```
+backend/
+├── node/
+│   ├── log/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── utils/
+│   ├── db.js
 │   ├── package.json
-│   └── package-lock.json
+│   └── .env
 │
-├── frontend/
-│   ├── src/
-│   │   ├── api/
-│   │   │   └── articles.js
-│   │   ├── components/
-│   │   │   ├── ArticleCard.jsx
-│   │   │   ├── CreateArticle.jsx
-│   │   │   └── EditArticle.jsx
-│   │   ├── pages/
-│   │   │   ├── ArticleList.jsx
-│   │   │   └── ArticleDetail.jsx
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   │
-│   ├── index.html
-│   ├── package.json
-│   └── vite.config.js
+├── python/
+│   ├── chatbot/
+│   ├── Face_Shape/
+│   ├── models/
+│   ├── static/
+│   ├── Trained_models/
+│   ├── main.py
+│   ├── requirements.txt
+│   └── .env
 │
-└── README.md
----
+frontend/
+├── src/
+├── public/
+└── package.json
+```
+
 ---
 
 ## Environment Variables
