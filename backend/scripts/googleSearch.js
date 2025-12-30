@@ -27,7 +27,7 @@ export async function searchGoogle(query) {
   }
 }
 
-export function extractTopArticles(results, limit = 2) {
+export function extractTopArticles(results) {
   const blockedDomains = [
     "beyondchats.com",
     "youtube.com",
@@ -45,10 +45,10 @@ export function extractTopArticles(results, limit = 2) {
     const url = item.link;
     if (!url) continue;
 
-    // Block obvious junk
+    // Domain blacklist
     if (blockedDomains.some(d => url.includes(d))) continue;
 
-    // Reject non-HTML content
+    // Reject files & feeds
     if (
       url.endsWith(".pdf") ||
       url.includes("/feed") ||
@@ -58,10 +58,25 @@ export function extractTopArticles(results, limit = 2) {
       continue;
     }
 
+    // Must look like an article URL
+    if (
+      !url.includes("/blog") &&
+      !url.includes("/article") &&
+      !url.includes("/guide") &&
+      !url.includes("/learn") &&
+      !url.includes("medium.com")
+    ) {
+      continue;
+    }
+
     valid.push(url);
 
-    if (valid.length === limit) break;
+    if (valid.length === 2) break;
   }
 
-  return valid; 
+  if (valid.length < 2) {
+    throw new Error("Not enough valid competitor articles found from Google");
+  }
+
+  return valid;
 }
