@@ -40,7 +40,7 @@ The project is divided into three phases:
 
 ## 🗂️ Project Structure
 
-```
+---
 
 ## 🗂️ Project Structure
 
@@ -97,19 +97,19 @@ POST    /api/articles/:id/rewrite
 ## Running the Project (Git Bash)
 
 ### Backend
-
+```
 cd backend  
 npm install  
 npm start  
-
+```
 Backend runs on http://localhost:8080
 
 ### Frontend
-
+```
 cd frontend  
 npm install  
 npm run dev  
-
+```
 Frontend runs on http://localhost:5173
 
 ---
