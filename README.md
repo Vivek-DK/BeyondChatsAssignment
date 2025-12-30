@@ -40,7 +40,7 @@ The project is divided into three phases:
 ---
 
 ## Complete Project Structure
-
+---
 beyondchats-assignment/
 │
 ├── backend/
@@ -86,7 +86,7 @@ beyondchats-assignment/
 │   └── vite.config.js
 │
 └── README.md
-
+---
 ---
 
 ## Environment Variables
