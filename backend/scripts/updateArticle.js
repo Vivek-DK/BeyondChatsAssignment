@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:8080"; // change if needed
+const API_BASE = "http://localhost:8080"; 
 
 async function fetchOriginalArticle() {
   const res = await axios.get(`${API_BASE}/articles`);
