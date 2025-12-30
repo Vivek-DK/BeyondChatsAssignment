@@ -45,31 +45,51 @@ The project is divided into three phases:
 ## 🗂️ Project Structure
 
 ```
-backend/
-├── node/
-│   ├── log/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── utils/
-│   ├── db.js
-│   ├── package.json
-│   └── .env
+beyondchats-assignment/
 │
-├── python/
-│   ├── chatbot/
-│   ├── Face_Shape/
-│   ├── models/
-│   ├── static/
-│   ├── Trained_models/
-│   ├── main.py
-│   ├── requirements.txt
-│   └── .env
+├── backend/
+│ ├── src/
+│ │ ├── controllers/
+│ │ │ └── articleController.js
+│ │ ├── models/
+│ │ │ └── Article.js
+│ │ ├── routes/
+│ │ │ └── articleRoutes.js
+│ │ ├── services/
+│ │ │ ├── rewriteArticleService.js
+│ │ │ └── llm/
+│ │ │ ├── llmClient.js
+│ │ │ └── rewritePrompt.js
+│ │ └── index.js
+│ │
+│ ├── scripts/
+│ │ ├── beyondchatsScraper.js
+│ │ ├── googleSearch.js
+│ │ └── scrapeArticleContent.js
+│ │
+│ ├── .env
+│ ├── package.json
+│ └── package-lock.json
 │
-frontend/
-├── src/
-├── public/
-└── package.json
+├── frontend/
+│ ├── src/
+│ │ ├── api/
+│ │ │ └── articles.js
+│ │ ├── components/
+│ │ │ ├── ArticleCard.jsx
+│ │ │ ├── CreateArticle.jsx
+│ │ │ └── EditArticle.jsx
+│ │ ├── pages/
+│ │ │ ├── ArticleList.jsx
+│ │ │ └── ArticleDetail.jsx
+│ │ ├── App.jsx
+│ │ └── main.jsx
+│ │
+│ ├── index.html
+│ ├── package.json
+│ └── vite.config.js
+│
+└── README.md
 ```
 ---
 
@@ -94,6 +114,40 @@ POST    /api/articles/:id/rewrite
 
 ---
 
+
+### Rewrite Flow
+
+1. Fetch article from MongoDB
+2. Search article title on Google using Serper.dev
+3. Extract top 2 competitor blog/article links
+4. Scrape main readable content from competitor pages
+5. Rewrite original article using LLM
+6. Append references section
+7. Save rewritten content to MongoDB
+
+### Safeguards
+- Blocks forums, marketplaces, videos, feeds
+- Skips thin or blocked competitor pages
+- Prevents rewriting short content
+- Always cites reference links
+
+---
+
+## Phase 3 – React Frontend
+
+### Features
+- List articles
+- View article details
+- Create article (modal with blur background)
+- Edit article content
+- Delete article
+- Rewrite article using AI
+- Loading indicators for rewrite & delete
+- Status labels (Original / Rewritten)
+- Displays competitor references
+
+---
+
 ## Running the Project (Git Bash)
 
 ### Backend
@@ -114,14 +168,36 @@ Frontend runs on http://localhost:5173
 
 ---
 
-## Notes
-
-- Competitor articles are filtered to avoid forums, feeds, and non-blog pages
-- Scraping failures are handled gracefully
-- Rewritten articles always include reference links
-- Clean separation of backend, scripts, and frontend layers
 
 ---
+
+## Key Design Decisions
+
+- URL-based competitor filtering
+- Scraping determines content validity
+- Defensive error handling at every stage
+- Clear separation of concerns
+- Production-style rewrite pipeline
+
+---
+
+## Future Improvements
+
+- Background job queue for AI rewriting
+- Retry logic for blocked pages
+- Markdown rendering in UI
+- Authentication & authorization
+- Dockerized deployment
+
+---
+
+## Final Notes
+
+This project demonstrates:
+- Real-world web scraping
+- AI-assisted content rewriting
+- REST API design
+- React-based content management UI
 
 ## Status
 
