@@ -90,11 +90,11 @@ export async function rewriteArticleController(req, res) {
     }
 
     let competitorLinks;
-    try {
-      competitorLinks = extractTopArticles(searchResults);
-    } catch (err) {
-      return res.status(400).json({
-        message: "Not enough valid competitor articles found"
+    const competitorLinks = extractTopArticles(searchResults, 2);
+    if (competitorContents.length === 0) {
+      return res.status(200).json({
+        message: "Rewrite skipped — competitor scraping failed",
+        rewrittenContent: article.content
       });
     }
 
