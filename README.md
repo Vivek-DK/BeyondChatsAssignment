@@ -177,7 +177,7 @@ cd backend/src
 npm install  
 node app.js 
 ```
-Backend runs on http://localhost:8080
+Backend runs on https://beyondchatsassignment.onrender.com
 
 ### Frontend
 ```
@@ -185,7 +185,7 @@ cd frontend/src
 npm install  
 npm run dev  
 ```
-Frontend runs on http://localhost:5173
+Frontend runs on https://beyond-chats-assignment-m1mf.vercel.app/
 
 ---
 
