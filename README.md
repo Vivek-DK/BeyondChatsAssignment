@@ -100,8 +100,8 @@ OPENROUTER_API_KEY=your_llm_api_key
 ```
 ---
 
-##Phase 1 – Scraping & CRUD APIs Features
-###Scrapes the 5 oldest articles from BeyondChats blogs 
+## Phase 1 – Scraping & CRUD APIs Features
+### Scrapes the 5 oldest articles from BeyondChats blogs 
 -Extracts:
 
   -1.Title
@@ -128,8 +128,8 @@ DELETE  /api/articles/:id
 POST    /api/articles/:id/rewrite  
 
 ---
-##Phase 2 – AI Rewrite Pipeline
-###Rewrite Endpoint
+## Phase 2 – AI Rewrite Pipeline
+### Rewrite Endpoint
 
 ```
 POST /api/articles/:id/rewrite
