@@ -11,7 +11,7 @@ function getLastPageUrl(html) {
     const href = $(el).attr("href");
     const match = href?.match(/\/page\/(\d+)\//);
     if (match) {
-      maxPage = Math.max(maxPage, Number(match[1]));
+      maxPage = Math.max(maxPage-1, Number(match[1]));
     }
   });
 

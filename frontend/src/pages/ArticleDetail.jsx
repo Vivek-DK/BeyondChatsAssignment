@@ -1,11 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getArticleById, rewriteArticle } from "../api/articles";
+import { getArticleById } from "../api/articles";
 
 export default function ArticleDetail() {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getArticleById(id.trim())
@@ -19,6 +20,20 @@ export default function ArticleDetail() {
 
   return (
     <div style={{ maxWidth: 900, margin: "40px auto" }}>
+      <button
+        onClick={() => navigate("/")}
+        style={{
+          marginBottom: 20,
+          padding: "6px 12px",
+          cursor: "pointer",
+          background: "#f3f4f6",
+          border: "1px solid #d1d5db",
+          borderRadius: 4
+        }}
+      >
+        ← Back to Articles
+      </button>
+
       <h1>{article.title}</h1>
 
       <p style={{ color: "#555", marginTop: -10 }}>
